@@ -44,4 +44,4 @@ def developer():
 
     rows = cur.fetchall()
     return render_template('developer.html', rows=rows)
-app.run()
+
