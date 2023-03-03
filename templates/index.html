@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game Research</title>
+	<style>
+		body {
+			background-color: black;
+			color: #3f3f3f;
+			font-family: Arial, sans-serif;
+		}
+		.transparent-box {
+			border-radius: 20px;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			padding: 20px;
+			margin: 10px;
+			box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+			text-align: center;
+		}
+		a.button {
+			background-color: black;
+			color: #fff;
+			display: inline-block;
+			padding: 10px;
+			border-radius: 5px;
+			text-decoration: none;
+			transition: background-color 0.2s ease-in-out;
+		}
+		a.button:hover {
+			background-color: black;
+		}
+		.left-box {
+			border-radius: 20px;
+			float: left;
+			width: 45%;
+			padding: 20px;
+			margin: 10px;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			height: 200px;
+			box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+			text-align: center;
+		}
+		.right-box {
+			border-radius: 20px;
+			float: right;
+			width: 45%;
+			padding: 20px;
+			margin: 10px;
+			background-color: #fff;
+			border: 1px solid #ccc;
+			height: 200px;
+			box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+			text-align: center;
+		}
+		h1 {
+			font-size: 3rem;
+			margin-bottom: 0;
+		}
+		h3 {
+			font-size: 1.5rem;
+			margin-top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="transparent-box">
+		<h1>Game Research</h1>
+		<h3>You search it, we might find it</h3>
+		<p>Look at the data in the other pages and fix errors as you find them</p>
+		<p><a class="button" href={{ url_for('game') }}>Games</a> <a class="button" href={{ url_for('developer') }}>Developers</a></p>
+		<p>Go to find the data you like and look forward to your discovery</p>
+		<p>Data is from Kaggle for reference only</p>
+	</div>
+	<div class="left-box">
+		<h2>Games</h2>
+		<h3>You search it, we might find it</h3>
+		<p>Do you feel worried because you haven't found the right game yet?</p>
+	</div>
+	<div class="right-box">
+		<h2>Developers</h2>
+		<h3>You search it, we might find it</h3>
+		<p>Do you feel depressed because you haven't found the game developer data yet?</p>
+	</div>
+</body>
+</html>

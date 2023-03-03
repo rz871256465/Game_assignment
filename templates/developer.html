@@ -1,0 +1,76 @@
+<html>
+<head>
+  <title>Developer Details</title>
+  <html>
+<head>
+  <title>Developer Details</title>
+  <style>
+    body {
+      background-color: #282c34;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .card {
+      background-color: #2c3039;
+      color: #fff;
+      padding: 20px;
+      margin: 20px;
+      width: 400px;
+      border-radius: 5px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+    strong {
+      color: #777;
+      font-weight: 700;
+    }
+    a {
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+      background-color: #777;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    {% for row in rows %}
+      <div class="card">
+        <h1>Developer Details</h1>
+        <p>
+          <strong>Rank:</strong> <a href="{{ url_for('game', rank=row[0]) }}">{{ row[0] }}</a><br>
+          <strong>Developer:</strong> {{ row[5] }}<br>
+          <strong>Name:</strong> {{ row[1] }}<br>
+          <strong>Genre:</strong> {{ row[2] }}<br>
+          <strong>ESRB_Rating:</strong> {{ row[3] }}<br>
+          <strong>Platform:</strong> {{ row[4] }}<br>
+          <strong>Publisher:</strong> {{ row[6] }}<br>
+          <strong>Critic_Score:</strong> {{ row[7] }}<br>
+          <strong>User_Score:</strong> {{ row[8] }}<br>
+          <strong>Year:</strong> {{ row[9] }}<br>
+        </p>
+      </div>
+      {% if loop.index % 2 == 0 %}
+        </div><div class="container">
+      {% endif %}
+    {% endfor %}
+  </div>
+</body>
+</html>
