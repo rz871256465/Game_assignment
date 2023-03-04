@@ -1,4 +1,7 @@
 # Video Game Sales Analysis Web App
+This development has been uploaded to Render
+url:https://game-assignment3.onrender.com/
+
 This is a web application that displays video game sales data from a SQLite database. The application is built using Python Flask framework and HTML/CSS
 ## Features
 **Home page**: Displays an overview of the database records and allows the user to filter the records by platform or genre.
@@ -24,12 +27,19 @@ This is a web application that displays video game sales data from a SQLite data
 ## how to run
 please make sure you have installed flask
 ```pip install flask```
+
+if you use codio please input:
 ```
 cd Game_assignment
 export FLASK_APP=game.py
 export FLASK_ENV=development
 python -m flask run -h 0.0.0.0
 ```
+then open project - box info - open url - add '-5000' before '.codio'
+
+if you use pycharm
+just add ```app.run()```at the bottom in game.py
+
 ## Precautions
 
 please make sure you have loaded the flask framework before using.
