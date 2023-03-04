@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask,g, render_template
+from flask import Flask, g, render_template
 
 app = Flask(__name__)
 
@@ -17,31 +17,47 @@ def get_db():
         g.sqlite_db = connect_db()
     return g.sqlite_db
 
+@app.teardown_appcontext
 def close_db(error):
     if hasattr(g, 'sqlite_db'):
         g.sqlite_db.close()
 
+# 404 error handling function
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('error.html', message="404 Error: Page not found."), 404
+
+# database error handling function
+@app.errorhandler(sqlite3.Error)
+def database_error(error):
+    return render_template('error.html', message="An error occurred while accessing the database."), 500
+
+
 # define routes
 @app.route('/')
 def index():
-
     return render_template('index.html')
 
 @app.route('/game')
 def game():
-    db = get_db()
-    cur=db.execute("select * from vgsales")
-    # cur.execute('SELECT * FROM games')
-    rows = cur.fetchall()
-    print(rows)
-    return render_template('game.html', rows=rows)
-
+    try:
+        db = get_db()
+        cur = db.execute("select * from vgsales")
+        rows = cur.fetchall()
+        return render_template('game.html', rows=rows)
+    except sqlite3.Error as e:
+        print("An error occurred while executing the SQL statement:", e)
+        return render_template('error.html', message="An error occurred while fetching the data.")
 
 @app.route('/developer')
 def developer():
-    db = get_db()
-    cur = db.execute("select * from vgsales_details")
+    try:
+        db = get_db()
+        cur = db.execute("select * from vgsales_details")
+        rows = cur.fetchall()
+        return render_template('developer.html', rows=rows)
+    except sqlite3.Error as e:
+        print("An error occurred while executing the SQL statement:", e)
+        return render_template('error.html', message="An error occurred while fetching the data.")
 
-    rows = cur.fetchall()
-    return render_template('developer.html', rows=rows)
 
