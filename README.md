@@ -24,7 +24,7 @@ This is a web application that displays video game sales data from a SQLite data
 ## how to run
 
 ```
-cd xx
+cd Game_assignment
 export FLASK_APP=game.py
 export FLASK_ENV=development
 python -m flask run -h 0.0.0.0
