@@ -22,7 +22,8 @@ This is a web application that displays video game sales data from a SQLite data
 ```developer.html```: Developer details page template.
 
 ## how to run
-
+please make sure you have installed flask
+```pip install flask```
 ```
 cd Game_assignment
 export FLASK_APP=game.py
@@ -36,6 +37,4 @@ please make sure you have loaded the flask framework before using.
 you can put ``` pip list ```
 to check whether the framework is installed
 
-## Ending
 
-This code prohibits the use of commercial practices
